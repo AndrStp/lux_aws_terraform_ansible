@@ -1,0 +1,30 @@
+
+---
+- hosts: lux_webservers
+  become: yes
+
+  vars:
+    server_user: ec2-user
+    docker_image: ngnix_lux_web:v1.0
+   
+  tasks:
+    - name: Copy Dockerfile
+      copy: 
+        src: ../Dockerfile 
+        dest: ./tmp/Dockerfile
+    
+    - name: Build container image
+      docker_image: 
+        name: "{{ docker_image }}"
+        source: build
+        build:
+          path: /home/ec2-user/tmp
+        state: present
+
+    - name: Launch docker container
+      docker_container:
+        name: 'ngnix_webserver'
+        image: "{{ docker_image }}"
+        state: started
+        ports:
+          - 80:80

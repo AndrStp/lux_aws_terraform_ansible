@@ -47,10 +47,6 @@
         - python3.8
         - ansible
         - docker
-    
-    - name: Test Docker with hello world example
-      shell: "docker run hello-world"
-      register: hello_world_output
 
     - name: Create docker group
       group:
@@ -81,8 +77,3 @@
         - boto
         - boto3
         - docker-compose
-    
-    - name: Creates tmp directory
-      file:
-        path: ./tmp
-        state: directory
