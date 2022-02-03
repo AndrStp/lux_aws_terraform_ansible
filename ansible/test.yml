@@ -1,0 +1,7 @@
+
+---
+- hosts: lux_webservers
+
+  tasks:
+    - name: Copy index.html file to webserver
+      copy: src=../index.html dest=/home/ec2-user/

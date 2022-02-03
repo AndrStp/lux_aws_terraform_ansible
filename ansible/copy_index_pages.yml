@@ -1,0 +1,29 @@
+---
+- hosts: 54.161.72.202
+  vars:
+    server_ip: 54.161.72.202
+    server_dns: ec2-54-161-72-202.compute-1.amazonaws.com
+
+  tasks:
+    - name: Creates tmp directory
+      file:
+        path: ./tmp
+        state: directory
+
+    - name: Copy index.html file
+      template: src=../index.html.j2 dest=/home/ec2-user/tmp/index.html
+  
+  
+- hosts: 52.91.62.63
+  vars:
+    server_ip: 52.91.62.63
+    server_dns: ec2-52-91-62-63.compute-1.amazonaws.com  
+
+  tasks:
+    - name: Creates tmp directory
+      file:
+        path: ./tmp
+        state: directory
+
+    - name: Copy index.html file
+      template: src=../index.html.j2 dest=/home/ec2-user/tmp/index.html
