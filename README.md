@@ -188,7 +188,7 @@ The output should be the following:
   <h1>Lux Nginx Server</h1>
   <h3>Hello from the Docker container!</h1>
   <h3>Public IP adress: <b>*public_ip_address_of_ec2_instance*</b></h3>
-  <h3>Public DNS adress: <b>pulic_dns_address_of_ec2_instance</b></h3>
+  <h3>Public DNS adress: <b>*pulic_dns_address_of_ec2_instance*</b></h3>
 </body>
 </html>
 ```
